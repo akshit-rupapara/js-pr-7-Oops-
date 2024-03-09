@@ -1,0 +1,61 @@
+<script type="text/javascript">
+
+    class Bankaccount {
+
+        constructor(acno, pass, acname, bal) {
+            this.acno = acno;
+            this.pass = pass;
+            this.acname = acname;
+            this.bal = bal;
+        }
+
+        Withdraw(amt) {
+            let acno = parseInt(prompt("Enter Account Number"));
+            let pass = prompt("Enter Password");
+            if (this.acno == acno && this.pass == pass) {
+                if (this.bal >= amt) {
+                    this.bal = this.bal - amt;
+                    console.log(`Account Holder Name = ${this.acname}`);
+                    console.log(`Account Balance = ${this.bal}`);
+                } else {
+                    console.warn("Insufficient Balance");
+                }
+            }
+        }
+
+        Deposite(amt) {
+            if (amt > 0) {
+                this.bal = this.bal + amt;
+                console.log(`Account Holder Name = ${this.acname}`);
+                console.log(`Account Balance = ${this.bal}`);
+            }else{
+                console.warn(`Minimun 1 ruppee Deposite...`);
+            }
+        }
+
+        getdetails() {
+            console.log(`Account No. = ${this.acno}`);
+            console.log(`Account Pass. = ${this.pass}`);
+            console.log(`Account Holder Name = ${this.acname}`);
+            console.log(`Account Balance = ${this.bal}`);
+        }
+
+    }
+
+    let b = new Bankaccount(111, "ak", "akshit", 50000);
+    console.log(`press 1 money withdraw :- `);
+    console.log(`press 2 money deposite :- `);
+    console.log(`press 3 money details :- `);
+    let ch = parseInt(prompt("enter your choise :- "))
+
+    if(ch==1){
+        let w = parseInt(prompt("enter your withdraw amount :- "));
+        b.Withdraw(w);
+    }else if(ch == 2){
+        let d = parseInt(prompt("enter your deposite amount :- "));
+        b.Deposite(d);
+    }else if(ch == 3){
+        b.getdetails();
+    }
+
+</script>
